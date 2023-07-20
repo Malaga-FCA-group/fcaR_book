@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Formal Concept Analysis with R - 2&nbsp; Formal Contexts</title>
+<title>Formal Concept Analysis with R - 2&nbsp; Formal Contexts and Galois Connections</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -62,6 +81,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -74,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./contexts.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Formal Contexts</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./contexts.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Formal Contexts and Galois Connections</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -114,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./contexts.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Formal Contexts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Formal Contexts and Galois Connections</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -147,14 +168,20 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#derivation-operators" id="toc-derivation-operators" class="nav-link active" data-scroll-target="#derivation-operators"><span class="header-section-number">2.1</span> Derivation operators</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Formal Contexts</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Formal Contexts and Galois Connections</span></h1>
 </div>
 
 
@@ -169,8 +196,30 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>In this section, we present the basic notions in the FCA framework using a running example (see Table&nbsp;<span class="math inline">\(\ref{tab:fc}\)</span>). Note that the package incorporates the main methods in FCA that appear in this summary. Since the formal study of FCA is not the main scope of this work, we recommend the reference <span class="citation" data-cites="ganter2016conceptual">(<a href="references.html#ref-ganter2016conceptual" role="doc-biblioref">Ganter and Obiedkov 2016</a>)</span> for further details of this framework.</p>
+<p>A is a triple <span class="math inline">\((G, M, I)\)</span>, where <span class="math inline">\(G\)</span> is a set of objects, <span class="math inline">\(M\)</span> is a set of attributes and <span class="math inline">\(I\)</span> is a fuzzy relation between objects and attributes, where <span class="math inline">\(I(x, y) \in [0, 1]\)</span> means the truth value to which object <span class="math inline">\(x\)</span> possesses attribute <span class="math inline">\(y\)</span>, indicating <span class="math inline">\(I(x,y) = 0\)</span> the absence of attribute or property <span class="math inline">\(y\)</span> in object <span class="math inline">\(x\)</span>.</p>
+<p>The meaning of each entry in the table is the extent to which an object possesses the attribute in the corresponding column. In the example shown in Table&nbsp;<span class="math inline">\(\ref{tab:fc}\)</span>, the object named O1 fully possesses attribute P2 and possesses P3 and P4 only to degree 50%.</p>
+<p>In the remaining of this paper, we will use the notation <span class="math inline">\(^{d\!}/a\)</span> to indicate the presence of attribute <span class="math inline">\(a\)</span> with degree <span class="math inline">\(d\)</span>.</p>
+<section id="derivation-operators" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="derivation-operators"><span class="header-section-number">2.1</span> Derivation operators</h2>
+<p>Given a fuzzy set of objects <span class="math inline">\(\mathcal{S}\)</span>, we can compute its as the set of attributes that are shared by all objects in <span class="math inline">\(\mathcal{S}\)</span>. Analogously, we define the of a set <span class="math inline">\(\mathcal{T}\)</span> of attributes as the set of objects which have <em>all</em> the attributes in <span class="math inline">\(\mathcal{T}\)</span>.</p>
+<p>In the above example, for <span class="math inline">\(S=\)</span>{, }, we have <span class="math inline">\(\text{intent}(S)=\)</span>{{^{0.5}}!/, {^{0.5}}!/} because (I(, ) = 0.5), (I(, ) = 0.5), (I(, ) = 1) and (I(, ) = 1).</p>
+<p>The operator <span class="math inline">\(\phi\)</span> defined by <span class="math inline">\(\phi(T) = \text{intent}(\text{extent}(T))\)</span> is a closure operator and a set of attributes <span class="math inline">\(\mathcal{T}\)</span> is called if <span class="math inline">\(\mathcal{T} = \phi(\mathcal{T})\)</span>. In our example, (({{^{0.5}}!/}) = {{^{0.5}}!/, , }), meaning that <em>every object</em> that has P1 with degree at least 0.5, also has all the attributes {, }. When <span class="math inline">\(\mathcal{T}\)</span> is closed, the pair <span class="math inline">\((\text{extent}(\mathcal{T}), \mathcal{T})\)</span> is called a .</p>
+<p>In general, a concept <span class="math inline">\((A, B)\)</span>, where <span class="math inline">\(A\)</span> is a set of objects, and <span class="math inline">\(B\)</span> is a set of attributes, means that the only attributes shared by all objects in <span class="math inline">\(A\)</span> are those in <span class="math inline">\(B\)</span>, and the only objects having all attributes in <span class="math inline">\(B\)</span> are those in <span class="math inline">\(A\)</span>. This property makes <span class="math inline">\((A, B)\)</span> a <em>maximal rectangular cluster</em> in the dataset, with a strong dependence between the objects in <span class="math inline">\(A\)</span> and the attributes in <span class="math inline">\(B\)</span>. In the formal context represented in Table&nbsp;<span class="math inline">\(\ref{tab:fc}\)</span>, the pair is a concept, because <span class="math inline">\(\text{extent}(\left\{{^{0.5}}\!/\mathrm{P1}, \mathrm{P2}, \mathrm{P4}\right\})=\left\{\mathrm{O2}\right\}\)</span> and <span class="math inline">\(\text{intent}(\left\{\mathrm{O2}\right\})=\left\{{^{0.5}}\!/\mathrm{P1}, \mathrm{P2}, \mathrm{P4}\right\}\)</span>, i.e.&nbsp;a fixpoint is achieved.</p>
+<p>In FCA, using these derivation operators, two operations can be used to reduce a formal context:</p>
+<ul>
+<li>{Clarification}, which is the removal of duplicated rows (objects) and columns (attributes) of the formal context since duplicates do not contribute knowledge to the context.</li>
+<li>{Reduction}, which removes attributes that can be expressed as the closure of other attributes.</li>
+</ul>
+<p>These two operations remove redundancies in the formal context without affecting the knowledge contained in it. Many of the subsequent operations in FCA have high computational complexity, and clarifying and reducing a formal context may reduce the computational time of posterior operations.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-ganter2016conceptual" class="csl-entry" role="listitem">
+Ganter, Bernhard, and Sergei A. Obiedkov. 2016. <em>Conceptual Exploration</em>. Springer. <a href="https://doi.org/10.1007/978-3-662-49291-8">https://doi.org/10.1007/978-3-662-49291-8</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

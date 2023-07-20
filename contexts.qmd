@@ -1,1 +1,102 @@
-# Formal Contexts
+# Formal Contexts and Galois Connections
+
+In this section, we present the basic notions in the FCA framework using a running example (see Table&nbsp;\ref{tab:fc}). Note that the package incorporates the main methods in FCA that appear in this summary. Since the formal study of FCA is not the main scope of this work,  we recommend the reference [@ganter2016conceptual] for further details of this framework. 
+
+```{r fc, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+library(fcaR)
+
+objects <- paste0("O", 1:4)
+n_objects <- length(objects)
+
+attributes <- paste0("P", 1:4)
+n_attributes <- length(attributes)
+
+I <- matrix(data = c(0, 0.5, 0.5, 0,
+                     0.5, 1, 1, 0.5,
+                     0.5, 0, 0, 1,
+                     0.5, 1, 1, 0.5),
+            nrow = n_objects,
+            byrow = FALSE)
+
+colnames(I) <- attributes
+rownames(I) <- objects
+
+fc <- FormalContext$new(I)
+fc$find_implications()
+
+my_caption <- glue::glue("A sample formal context. The attributes are {attributes[1]} to {attributes[fc$dim()[2]]} and the objects are named {objects[1]} to {objects[fc$dim()[1]]}.")
+
+imps <- fc$implications$clone()
+imps$apply_rules(c("simp", "rsimp"))
+
+fc$to_latex(label = "tab:fc",
+             caption = my_caption,
+             fraction = "sfrac")
+```
+
+A \dfn{formal context} is a triple $(G, M, I)$, where $G$ is a set of objects, $M$ is a set of attributes and $I$ is a fuzzy relation between objects and attributes, where $I(x, y) \in [0, 1]$ means the truth value to which object $x$ possesses attribute $y$, indicating $I(x,y) = 0$ the absence of attribute or property $y$ in object $x$.
+
+The meaning of each entry in the table is the extent to which an object possesses  the attribute in the corresponding column. In the example shown in Table&nbsp;\ref{tab:fc}, the object named O1 fully possesses attribute P2 and possesses P3 and P4 only to degree 50\%.
+
+In the remaining of this paper, we will use the notation $^{d\!}/a$ to indicate the presence of attribute $a$ with degree $d$.
+
+## Derivation operators
+
+Given a fuzzy set of objects $\mathcal{S}$, we can compute its \dfn{intent} as the set of attributes that are shared by all objects in $\mathcal{S}$. Analogously, we define the \dfn{extent} of a set $\mathcal{T}$ of attributes as the set of objects which have _all_ the attributes in $\mathcal{T}$.
+
+```{r echo = FALSE}
+S <- Set$new(fc$objects)
+S$assign(O1 = 1, O2 = 1)
+intentS <- fc$intent(S)
+
+T <- Set$new(fc$attributes)
+T$assign(P1 = 1, P3 = 1)
+extentT <- fc$extent(T)
+
+Sobj <- S$get_attributes()[as.vector(S$get_vector() > 0)]
+intentS_att <- intentS$get_attributes()[as.vector(intentS$get_vector() > 0)]
+
+str <- c()
+for (o in Sobj) {
+    
+    for (a in intentS_att) {
+        
+        val <- I[o, a]
+        
+        str <- c(str, 
+                 glue::glue("\\(I(\\mathrm{[o]}, \\mathrm{[a]}) = [val]\\)", 
+                            .open = "[", 
+                            .close = "]"))
+        
+    }
+    
+}
+str2 <- stringr::str_flatten(str[-length(str)], collapse = ", ")
+str2 <- paste0(str2, " and ", str[length(str)])
+
+```
+In the above example, for $S=$`r S$to_latex(FALSE)`, we have $\text{intent}(S)=$`r intentS$to_latex(FALSE)` because `r str2`.
+
+```{r echo = FALSE}
+T <- Set$new(fc$attributes)
+T$assign(P1 = 0.5)
+Tclosure <- fc$closure(T)
+```
+
+
+The operator $\phi$ defined by $\phi(T) = \text{intent}(\text{extent}(T))$ is a closure operator and a set of attributes $\mathcal{T}$ is called \dfn{closed} if $\mathcal{T} = \phi(\mathcal{T})$.  In our example, \(\phi(`r T$to_latex(FALSE)`) = `r Tclosure$to_latex(FALSE)`\), meaning that _every object_ that has P1 with degree at least 0.5, also has all the attributes `r (Tclosure %-% T)$to_latex(FALSE)`. When $\mathcal{T}$ is closed, the pair $(\text{extent}(\mathcal{T}), \mathcal{T})$ is called a \dfn{concept}.
+
+```{r include=FALSE}
+C <- fc$concepts$sub(6)
+this_extent <- C$get_extent()$to_latex()
+this_intent <- C$get_intent()$to_latex()
+this_concept <- C$to_latex()
+```
+In general, a concept $(A, B)$, where $A$ is a set of objects, and $B$ is a set of attributes, means that the only attributes shared by all objects in $A$ are those in $B$, and the only objects having all attributes in $B$ are those in $A$. This property makes $(A, B)$ a _maximal rectangular cluster_ in the dataset, with a strong dependence between the objects in $A$ and the attributes in $B$. In the formal context represented in Table&nbsp;\ref{tab:fc}, the pair `r this_concept` is a concept, because  $\text{extent}(`r this_intent`)=`r this_extent`$ and  $\text{intent}(`r this_extent`)=`r this_intent`$, i.e. a fixpoint is achieved. 
+
+In FCA, using these derivation operators, two operations can be used to reduce a formal context:
+
+- {Clarification}, which is the removal of duplicated rows (objects) and columns (attributes) of the formal context since duplicates do not contribute knowledge to the context.
+- {Reduction}, which removes attributes that can be expressed as the closure of other attributes.  
+
+These two operations remove redundancies in the formal context without affecting the knowledge contained in it. Many of the subsequent operations in FCA have high computational complexity, and clarifying and reducing a formal context may reduce the computational time of posterior operations.
