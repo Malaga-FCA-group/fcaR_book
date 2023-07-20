@@ -11,6 +11,7 @@ book:
     - contexts.qmd
     - lattice.qmd
     - implications.qmd
+    - fuzzy.qmd
     - summary.qmd
     - references.qmd
 

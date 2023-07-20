@@ -4,6 +4,7 @@ In this section, we present the basic notions in the FCA framework using a runni
 
 ```{r fc, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
 library(fcaR)
+#fcaR_options("use_ensuremath" = TRUE)
 
 objects <- paste0("O", 1:4)
 n_objects <- length(objects)
@@ -34,7 +35,7 @@ fc$to_latex(label = "tab:fc",
              fraction = "sfrac")
 ```
 
-A \dfn{formal context} is a triple $(G, M, I)$, where $G$ is a set of objects, $M$ is a set of attributes and $I$ is a fuzzy relation between objects and attributes, where $I(x, y) \in [0, 1]$ means the truth value to which object $x$ possesses attribute $y$, indicating $I(x,y) = 0$ the absence of attribute or property $y$ in object $x$.
+A {formal context} is a triple $(G, M, I)$, where $G$ is a set of objects, $M$ is a set of attributes and $I$ is a fuzzy relation between objects and attributes, where $I(x, y) \in [0, 1]$ means the truth value to which object $x$ possesses attribute $y$, indicating $I(x,y) = 0$ the absence of attribute or property $y$ in object $x$.
 
 The meaning of each entry in the table is the extent to which an object possesses  the attribute in the corresponding column. In the example shown in Table&nbsp;\ref{tab:fc}, the object named O1 fully possesses attribute P2 and possesses P3 and P4 only to degree 50\%.
 
@@ -42,7 +43,7 @@ In the remaining of this paper, we will use the notation $^{d\!}/a$ to indicate 
 
 ## Derivation operators
 
-Given a fuzzy set of objects $\mathcal{S}$, we can compute its \dfn{intent} as the set of attributes that are shared by all objects in $\mathcal{S}$. Analogously, we define the \dfn{extent} of a set $\mathcal{T}$ of attributes as the set of objects which have _all_ the attributes in $\mathcal{T}$.
+Given a fuzzy set of objects $\mathcal{S}$, we can compute its \textbf{intent} as the set of attributes that are shared by all objects in $\mathcal{S}$. Analogously, we define the \textbf{extent} of a set $\mathcal{T}$ of attributes as the set of objects which have _all_ the attributes in $\mathcal{T}$.
 
 ```{r echo = FALSE}
 S <- Set$new(fc$objects)
@@ -84,7 +85,7 @@ Tclosure <- fc$closure(T)
 ```
 
 
-The operator $\phi$ defined by $\phi(T) = \text{intent}(\text{extent}(T))$ is a closure operator and a set of attributes $\mathcal{T}$ is called \dfn{closed} if $\mathcal{T} = \phi(\mathcal{T})$.  In our example, \(\phi(`r T$to_latex(FALSE)`) = `r Tclosure$to_latex(FALSE)`\), meaning that _every object_ that has P1 with degree at least 0.5, also has all the attributes `r (Tclosure %-% T)$to_latex(FALSE)`. When $\mathcal{T}$ is closed, the pair $(\text{extent}(\mathcal{T}), \mathcal{T})$ is called a \dfn{concept}.
+The operator $\phi$ defined by $\phi(T) = \text{intent}(\text{extent}(T))$ is a closure operator and a set of attributes $\mathcal{T}$ is called \textbf{closed} if $\mathcal{T} = \phi(\mathcal{T})$.  In our example, \(\phi(`r T$to_latex(FALSE)`) = `r Tclosure$to_latex(FALSE)`\), meaning that _every object_ that has P1 with degree at least 0.5, also has all the attributes `r (Tclosure %-% T)$to_latex(FALSE)`. When $\mathcal{T}$ is closed, the pair $(\text{extent}(\mathcal{T}), \mathcal{T})$ is called a \textbf{concept}.
 
 ```{r include=FALSE}
 C <- fc$concepts$sub(6)
