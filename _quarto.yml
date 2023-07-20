@@ -12,6 +12,7 @@ book:
     - lattice.qmd
     - implications.qmd
     - fuzzy.qmd
+    - applications.qmd
     - summary.qmd
     - references.qmd
 
