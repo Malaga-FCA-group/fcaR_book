@@ -8,6 +8,9 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - contexts.qmd
+    - lattice.qmd
+    - implications.qmd
     - summary.qmd
     - references.qmd
 
