@@ -1,9 +1,8 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+Mi idea:
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
-
-```{r}
-1 + 1
-```
+- Presentar la teoría de FCA (clásico) con algunos ejemplos.
+- Dentro (al final) de cada capítulo, añadir una sección donde se explique el uso de `fcaR`.
+- Pasar a un capítulo para hablar del FCA difuso.
+- Para finalizar, un capítulo con aplicaciones reales.

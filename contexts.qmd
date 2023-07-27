@@ -30,9 +30,9 @@ my_caption <- glue::glue("A sample formal context. The attributes are {attribute
 imps <- fc$implications$clone()
 imps$apply_rules(c("simp", "rsimp"))
 
-fc$to_latex(label = "tab:fc",
-             caption = my_caption,
-             fraction = "sfrac")
+# fc$to_latex(label = "tab:fc",
+#              caption = my_caption,
+#              fraction = "sfrac")
 ```
 
 A {formal context} is a triple $(G, M, I)$, where $G$ is a set of objects, $M$ is a set of attributes and $I$ is a fuzzy relation between objects and attributes, where $I(x, y) \in [0, 1]$ means the truth value to which object $x$ possesses attribute $y$, indicating $I(x,y) = 0$ the absence of attribute or property $y$ in object $x$.

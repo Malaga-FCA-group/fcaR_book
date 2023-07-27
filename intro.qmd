@@ -1,5 +1,11 @@
 # Introduction
 
+---
+
+Habría que reescribir un poco la introducción
+
+---
+
 The main goal of knowledge retrieval and knowledge discovery systems is to extract hidden patterns, trends, behaviours, or rules to solve large-impact real-world problems. Usually, these problems present heterogeneous data sources and are at the core of more general decision processes.
 
 A fundamental principle is that the extracted knowledge should provide some understanding of the analyzed data. As computational systems get in critical and sensitive areas such as medicine, the justice system or financial markets, the knowledge becomes much more relevant to make predictions or recommendations or to detect common interest groups or leaders. However, in many cases, the inability of humans to understand the extracted patterns seems problematic. 
@@ -28,7 +34,7 @@ In the fuzzy framework, several approaches to the definition of fuzzy implicatio
 The core of our proposal is to provide a user-friendly computational interface to the principal operators and methods of fuzzy FCA, including the mentioned logic tools. This interface is easy to extend to new functionalities and incorporate new methods, such as minimal generators or the computation of different implication bases quickly. The operators and methods implemented are designed to work in the general fuzzy setting, but they are also applicable in the classical binary case.
 
 
-Thus, the focus of our proposal, the \CRANpkg{fcaR} package, is to provide easy access to formal methods to extract all the implicit knowledge in a dataset in the form of concepts and implications, working natively with fuzzy sets and fuzzy implications. Our goal is to provide a unified computational framework for the theoretically-oriented FCA users to develop, test, and compare new methods and knowledge extraction strategies.
+Thus, the focus of our proposal, the `fcaR` package, is to provide easy access to formal methods to extract all the implicit knowledge in a dataset in the form of concepts and implications, working natively with fuzzy sets and fuzzy implications. Our goal is to provide a unified computational framework for the theoretically-oriented FCA users to develop, test, and compare new methods and knowledge extraction strategies.
 
 Other objectives of this work include presenting an FCA-based tool for knowledge discovery accessible to other scientific communities, allowing for the development of new packages in other fields using FCA techniques, especially in the construction of recommendation systems. 
 
