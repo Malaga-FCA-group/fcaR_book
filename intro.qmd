@@ -1,10 +1,6 @@
 # Introduction
 
----
-
-Habría que reescribir un poco la introducción
-
----
+## A brief outline 
 
 The main goal of knowledge retrieval and knowledge discovery systems is to extract hidden patterns, trends, behaviours, or rules to solve large-impact real-world problems. Usually, these problems present heterogeneous data sources and are at the core of more general decision processes.
 
@@ -42,3 +38,35 @@ Other objectives of this work include presenting an FCA-based tool for knowledge
 The work is organized as follows: Section&nbsp;\nameref{definitions} begins with  a brief look of FCA and Simplification Logic. Section&nbsp;\nameref{related} presents other software libraries that implement FCA or related paradigms' core notions. In Section&nbsp;\nameref{design}, an explanation of the
 data structures, classes and constructor methods is covered.  Section&nbsp;\nameref{fcaR} shows how
 to use the package, describing the implemented FCA methods and the use of the simplification logic. In Section&nbsp;\nameref{examples}, a real application of the package in developing a recommender system is illustrated. Finally, some conclusions and future works are presented in Section&nbsp;\nameref{conclusions}.
+
+## History of FCA
+
+> > Port-Royal logic (traditional logic): formal notion of concept, Arnauld A., Nicole P.: La logique ou l'art de penser, 1662 (Logic Or The Art Of Thinking, CUP, 2003): concept = extent (objects) + intent (attributes)
+
+> > G. Birkhoff (1940s): work on lattices and related mathematical structures, emphasizes applicational aspects of lattices in data analysis.
+
+> > Barbut M., Monjardet B.: Ordre et classiffication, algebre et combinatoire. Hachette, Paris, 1970.
+
+> > Wille R.: Restructuring lattice theory: an approach based on hierarchies of concepts. In: I. Rival (Ed.): Ordered Sets. Reidel, Dordrecht, 1982, pp. 445-470.
+
+> > **Ganter B., Wille R.: Formal Concept Analysis. Springer, 1999.**
+
+
+
+# Application of FCA
+
+-   knowledge extraction
+-   clustering and classification
+-   machine learning
+-   concepts, ontologies
+-   rules, association rules, attribute implications
+
+
+
+##  Applications of FCA
+
+-   knowledge extraction
+-   clustering and classification
+-   machine learning
+-   concepts, ontologies
+-   rules, association rules, attribute implications

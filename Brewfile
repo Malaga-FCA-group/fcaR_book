@@ -1,0 +1,25 @@
+tap "coursier/formulas"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "yihui/tinytex"
+brew "boost"
+brew "libpng"
+brew "freetype"
+brew "glib"
+brew "cairo"
+brew "faac"
+brew "git", link: false
+brew "gobject-introspection"
+brew "hicolor-icon-theme"
+brew "hugo"
+brew "libomp", link: true
+brew "libvpx"
+brew "pandoc", link: false
+brew "pdftk-java"
+brew "py3cairo"
+brew "pygobject3"
+brew "r", link: false
+brew "sccache"
+brew "srtp"
+cask "basictex"

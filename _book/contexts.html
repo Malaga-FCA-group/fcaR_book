@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -76,8 +76,7 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
 
@@ -98,7 +97,7 @@ div.csl-indent {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./contexts.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Formal Contexts and Galois Connections</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -215,9 +214,9 @@ div.csl-indent {
 <section id="derivation-operators" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="derivation-operators"><span class="header-section-number">2.1</span> Derivation operators</h2>
 <p>Given a fuzzy set of objects <span class="math inline">\(\mathcal{S}\)</span>, we can compute its as the set of attributes that are shared by all objects in <span class="math inline">\(\mathcal{S}\)</span>. Analogously, we define the of a set <span class="math inline">\(\mathcal{T}\)</span> of attributes as the set of objects which have <em>all</em> the attributes in <span class="math inline">\(\mathcal{T}\)</span>.</p>
-<p>In the above example, for <span class="math inline">\(S=\)</span>{, }, we have <span class="math inline">\(\text{intent}(S)=\)</span>{{^{0.5}}!/, {^{0.5}}!/} because (I(, ) = 0.5), (I(, ) = 0.5), (I(, ) = 1) and (I(, ) = 1).</p>
-<p>The operator <span class="math inline">\(\phi\)</span> defined by <span class="math inline">\(\phi(T) = \text{intent}(\text{extent}(T))\)</span> is a closure operator and a set of attributes <span class="math inline">\(\mathcal{T}\)</span> is called if <span class="math inline">\(\mathcal{T} = \phi(\mathcal{T})\)</span>. In our example, (({{^{0.5}}!/}) = {{^{0.5}}!/, , }), meaning that <em>every object</em> that has P1 with degree at least 0.5, also has all the attributes {, }. When <span class="math inline">\(\mathcal{T}\)</span> is closed, the pair <span class="math inline">\((\text{extent}(\mathcal{T}), \mathcal{T})\)</span> is called a .</p>
-<p>In general, a concept <span class="math inline">\((A, B)\)</span>, where <span class="math inline">\(A\)</span> is a set of objects, and <span class="math inline">\(B\)</span> is a set of attributes, means that the only attributes shared by all objects in <span class="math inline">\(A\)</span> are those in <span class="math inline">\(B\)</span>, and the only objects having all attributes in <span class="math inline">\(B\)</span> are those in <span class="math inline">\(A\)</span>. This property makes <span class="math inline">\((A, B)\)</span> a <em>maximal rectangular cluster</em> in the dataset, with a strong dependence between the objects in <span class="math inline">\(A\)</span> and the attributes in <span class="math inline">\(B\)</span>. In the formal context represented in Table&nbsp;<span class="math inline">\(\ref{tab:fc}\)</span>, the pair is a concept, because <span class="math inline">\(\text{extent}(\left\{{^{0.5}}\!/\mathrm{P1}, \mathrm{P2}, \mathrm{P4}\right\})=\left\{\mathrm{O2}\right\}\)</span> and <span class="math inline">\(\text{intent}(\left\{\mathrm{O2}\right\})=\left\{{^{0.5}}\!/\mathrm{P1}, \mathrm{P2}, \mathrm{P4}\right\}\)</span>, i.e.&nbsp;a fixpoint is achieved.</p>
+<p>In the above example, for <span class="math inline">\(S=\)</span>{, }, we have <span class="math inline">\(\text{intent}(S)=\)</span>{, } because (I(, ) = 0.5), (I(, ) = 0.5), (I(, ) = 1) and (I(, ) = 1).</p>
+<p>The operator <span class="math inline">\(\phi\)</span> defined by <span class="math inline">\(\phi(T) = \text{intent}(\text{extent}(T))\)</span> is a closure operator and a set of attributes <span class="math inline">\(\mathcal{T}\)</span> is called if <span class="math inline">\(\mathcal{T} = \phi(\mathcal{T})\)</span>. In our example, (({}) = {, , }), meaning that <em>every object</em> that has P1 with degree at least 0.5, also has all the attributes {, }. When <span class="math inline">\(\mathcal{T}\)</span> is closed, the pair <span class="math inline">\((\text{extent}(\mathcal{T}), \mathcal{T})\)</span> is called a .</p>
+<p>In general, a concept <span class="math inline">\((A, B)\)</span>, where <span class="math inline">\(A\)</span> is a set of objects, and <span class="math inline">\(B\)</span> is a set of attributes, means that the only attributes shared by all objects in <span class="math inline">\(A\)</span> are those in <span class="math inline">\(B\)</span>, and the only objects having all attributes in <span class="math inline">\(B\)</span> are those in <span class="math inline">\(A\)</span>. This property makes <span class="math inline">\((A, B)\)</span> a <em>maximal rectangular cluster</em> in the dataset, with a strong dependence between the objects in <span class="math inline">\(A\)</span> and the attributes in <span class="math inline">\(B\)</span>. In the formal context represented in Table&nbsp;<span class="math inline">\(\ref{tab:fc}\)</span>, the pair is a concept, because <span class="math inline">\(\text{extent}(\left\{\el{\mathrm{P1}}{0.5}, \mathrm{P2}, \mathrm{P4}\right\})=\left\{\mathrm{O2}\right\}\)</span> and <span class="math inline">\(\text{intent}(\left\{\mathrm{O2}\right\})=\left\{\el{\mathrm{P1}}{0.5}, \mathrm{P2}, \mathrm{P4}\right\}\)</span>, i.e.&nbsp;a fixpoint is achieved.</p>
 <p>In FCA, using these derivation operators, two operations can be used to reduce a formal context:</p>
 <ul>
 <li>{Clarification}, which is the removal of duplicated rows (objects) and columns (attributes) of the formal context since duplicates do not contribute knowledge to the context.</li>

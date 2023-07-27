@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -76,8 +76,7 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
 
@@ -98,7 +97,7 @@ div.csl-indent {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -180,7 +179,18 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a-brief-outline" id="toc-a-brief-outline" class="nav-link active" data-scroll-target="#a-brief-outline"><span class="header-section-number">1.1</span> A brief outline</a></li>
+  <li><a href="#history-of-fca" id="toc-history-of-fca" class="nav-link" data-scroll-target="#history-of-fca"><span class="header-section-number">1.2</span> History of FCA</a></li>
+  <li><a href="#application-of-fca" id="toc-application-of-fca" class="nav-link" data-scroll-target="#application-of-fca"><span class="header-section-number">2</span> Application of FCA</a>
+  <ul class="collapse">
+  <li><a href="#applications-of-fca" id="toc-applications-of-fca" class="nav-link" data-scroll-target="#applications-of-fca"><span class="header-section-number">2.1</span> Applications of FCA</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -202,9 +212,8 @@ div.csl-indent {
 
 </header>
 
-<hr>
-<p>Habría que reescribir un poco la introducción</p>
-<hr>
+<section id="a-brief-outline" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="a-brief-outline"><span class="header-section-number">1.1</span> A brief outline</h2>
 <p>The main goal of knowledge retrieval and knowledge discovery systems is to extract hidden patterns, trends, behaviours, or rules to solve large-impact real-world problems. Usually, these problems present heterogeneous data sources and are at the core of more general decision processes.</p>
 <p>A fundamental principle is that the extracted knowledge should provide some understanding of the analyzed data. As computational systems get in critical and sensitive areas such as medicine, the justice system or financial markets, the knowledge becomes much more relevant to make predictions or recommendations or to detect common interest groups or leaders. However, in many cases, the inability of humans to understand the extracted patterns seems problematic.</p>
 <p>To represent and retrieve knowledge from datasets, it has become more important to use formal methods based on logic tools. The formal representation of knowledge and the use of logic tools are more suitable for providing understandable answers. Therefore, it can help avoid the lack of interpretability and explainability of the results.</p>
@@ -220,6 +229,53 @@ div.csl-indent {
 <p>Thus, the focus of our proposal, the <code>fcaR</code> package, is to provide easy access to formal methods to extract all the implicit knowledge in a dataset in the form of concepts and implications, working natively with fuzzy sets and fuzzy implications. Our goal is to provide a unified computational framework for the theoretically-oriented FCA users to develop, test, and compare new methods and knowledge extraction strategies.</p>
 <p>Other objectives of this work include presenting an FCA-based tool for knowledge discovery accessible to other scientific communities, allowing for the development of new packages in other fields using FCA techniques, especially in the construction of recommendation systems.</p>
 <p>The work is organized as follows: Section&nbsp; begins with a brief look of FCA and Simplification Logic. Section&nbsp; presents other software libraries that implement FCA or related paradigms’ core notions. In Section&nbsp;, an explanation of the data structures, classes and constructor methods is covered. Section&nbsp; shows how to use the package, describing the implemented FCA methods and the use of the simplification logic. In Section&nbsp;, a real application of the package in developing a recommender system is illustrated. Finally, some conclusions and future works are presented in Section&nbsp;.</p>
+</section>
+<section id="history-of-fca" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="history-of-fca"><span class="header-section-number">1.2</span> History of FCA</h2>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>Port-Royal logic (traditional logic): formal notion of concept, Arnauld A., Nicole P.: La logique ou l’art de penser, 1662 (Logic Or The Art Of Thinking, CUP, 2003): concept = extent (objects) + intent (attributes)</p>
+</blockquote>
+</blockquote>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>G. Birkhoff (1940s): work on lattices and related mathematical structures, emphasizes applicational aspects of lattices in data analysis.</p>
+</blockquote>
+</blockquote>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>Barbut M., Monjardet B.: Ordre et classiffication, algebre et combinatoire. Hachette, Paris, 1970.</p>
+</blockquote>
+</blockquote>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>Wille R.: Restructuring lattice theory: an approach based on hierarchies of concepts. In: I. Rival (Ed.): Ordered Sets. Reidel, Dordrecht, 1982, pp.&nbsp;445-470.</p>
+</blockquote>
+</blockquote>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p><strong>Ganter B., Wille R.: Formal Concept Analysis. Springer, 1999.</strong></p>
+</blockquote>
+</blockquote>
+</section>
+<section id="application-of-fca" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Application of FCA</h1>
+<ul>
+<li>knowledge extraction</li>
+<li>clustering and classification</li>
+<li>machine learning</li>
+<li>concepts, ontologies</li>
+<li>rules, association rules, attribute implications</li>
+</ul>
+<section id="applications-of-fca" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="applications-of-fca"><span class="header-section-number">2.1</span> Applications of FCA</h2>
+<ul>
+<li>knowledge extraction</li>
+<li>clustering and classification</li>
+<li>machine learning</li>
+<li>concepts, ontologies</li>
+<li>rules, association rules, attribute implications</li>
+</ul>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -269,6 +325,8 @@ Trabelsi, Marwa, Nida Meddouri, and Mondher Maddouri. 2017. <span>“A New Featu
 Wille, Rudolf. 1982. <span>“Restructuring Lattice Theory: An Approach Based on Hierarchies of Concepts.”</span> In <em>Ordered Sets</em>, 445–70. Springer.
 </div>
 </div>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
