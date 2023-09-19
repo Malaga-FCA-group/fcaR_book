@@ -1,1 +1,148 @@
 # The Concept Lattice
+
+
+
+## Exercise
+
+
+# Exercises
+
+1.  Compute the intent of `Earth` and `Earth,Mars, Mercury` (use the argument attributes in the class Set).
+
+        
+```{r, echo=FALSE}
+library(fcaR)
+data(planets)
+fc_planets <- FormalContext$new(planets)
+    S <- Set$new(attributes = fc_planets$objects)
+    S$assign(Earth = 1)
+    S2 <- Set$new(attributes = fc_planets$objects)
+    S2$assign(attributes = c("Earth","Mars", "Mercury"),values = c(1,1,1))
+    S2
+    cat("Given the set of objects:")
+    S
+    cat("The intent is:")
+    # Compute the intent of S
+    fc_planets$intent(S)
+    fc_planets$intent(S2)
+```
+
+
+2.  Compute the extent of `large` and `far,large` (use the argument attributes in the class Set) and save the result in a variable `e1, e2`.
+
+       
+```{r, echo=FALSE}
+    M <- Set$new(attributes = fc_planets$attributes)
+    M$assign(large = 1)
+    M2 <- Set$new(attributes = fc_planets$attributes)
+    M2$assign(attributes = c("far","large"),values = c(1,1))
+    cat("Given the set of objects:")
+    M
+    M2
+    cat("The extent is:")
+    # Compute the intent of S
+    e1 <- fc_planets$extent(M)
+    e2 <- fc_planets$extent(M2)
+    e1
+    e2
+```
+
+
+3.  Compute the intent of variables `e1` and also of `e2`.
+
+        
+```{r, echo=FALSE}
+    fc_planets$intent(e1)
+    fc_planets$intent(e2)
+
+```
+
+
+4.  With the information from the above questions tell me a concept. Check with any command of fcaR package.
+
+5.  Compute the closure of `no_moon`
+
+      
+```{r, echo=FALSE}
+    S <- Set$new(attributes = fc_planets$attributes)
+    S$assign(no_moon = 1)
+    Sc <- fc_planets$closure(S)
+    Sc
+
+    fc_planets$att_concept("moon")
+```
+
+
+6.  Compute all the concepts and plot them. How many are there? Show the fist and the last (use subsetting).
+
+        
+```{r, echo=FALSE}
+    fc_planets$find_concepts()
+    last <- fc_planets$concepts$size()
+    fc_planets$concepts[c(1,last)]
+    fc_planets$concepts$plot()
+```
+
+
+7.  Compute the major concept (in lattice) that has moon. The same with no_moon. Locate both in the lattice to understand the meaning.
+
+       
+```{r, echo=FALSE}
+    fc_planets$att_concept("moon")
+    fc_planets$att_concept("no_moon")
+
+```
+
+
+8.  Compute the minor concept (in lattice) that has Pluto The same with Earth. Locate both in the lattice to understand the meaning.
+
+        
+```{r, echo=FALSE}
+    fc_planets$obj_concept("Pluto")
+    fc_planets$obj_concept("Earth")
+
+```
+
+
+9.  Compute the meet irreducible elements in the lattice.
+
+      
+```{r, echo=FALSE}
+    fc_planets$concepts$meet_irreducibles()
+     
+```
+
+
+10. Compute the sublattice of the concept in the irreducible elements
+
+```{r, echo=FALSE}
+    c1 <-  fc_planets$concepts$meet_irreducibles()
+    fc_planets$concepts$sublattice(c1)
+```
+
+11. Compute the sublattice of the concept in the irreducible elements removing the first element in the list of irreducible elements. Plot this sublattice.
+
+         
+```{r, echo=FALSE}
+    c1 <-  fc_planets$concepts$meet_irreducibles()[2:7]
+    sub1 <- fc_planets$concepts$sublattice(c1)
+    sub1
+    plot(sub1)
+```
+ 
+
+12. Develop a function returning the index and also the labels in all the concepts (inside the formal context) having a vector with attributes. HOMEWORK.
+
+         
+```{r}
+in_concept <- function(formal_context, attribute=xxx){
+  ...
+  #si en 
+  
+  return(list(index=..., labels=...))
+}
+ 
+
+```
+ 
+

@@ -1,34 +1,49 @@
 # Formal Contexts and Galois Connections
 
+---
+
+Habría que reescribir para únicamente presentar la versión crisp
+
+---
+
 In this section, we present the basic notions in the FCA framework using a running example (see Table&nbsp;\ref{tab:fc}). Note that the package incorporates the main methods in FCA that appear in this summary. Since the formal study of FCA is not the main scope of this work,  we recommend the reference [@ganter2016conceptual] for further details of this framework. 
 
-```{r fc, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+```{r fc, echo=FALSE, message=FALSE, warning=FALSE, results='markup'}
 library(fcaR)
-#fcaR_options("use_ensuremath" = TRUE)
-
-objects <- paste0("O", 1:4)
-n_objects <- length(objects)
-
-attributes <- paste0("P", 1:4)
-n_attributes <- length(attributes)
-
-I <- matrix(data = c(0, 0.5, 0.5, 0,
-                     0.5, 1, 1, 0.5,
-                     0.5, 0, 0, 1,
-                     0.5, 1, 1, 0.5),
-            nrow = n_objects,
-            byrow = FALSE)
-
-colnames(I) <- attributes
-rownames(I) <- objects
-
-fc <- FormalContext$new(I)
+fc <- FormalContext$new(planets)
 fc$find_implications()
 
-my_caption <- glue::glue("A sample formal context. The attributes are {attributes[1]} to {attributes[fc$dim()[2]]} and the objects are named {objects[1]} to {objects[fc$dim()[1]]}.")
+filename <- pander::Pandoc.convert(text = fc$to_latex(),
+                                   format = "md",
+                                   open = FALSE)
 
-imps <- fc$implications$clone()
-imps$apply_rules(c("simp", "rsimp"))
+cat(readLines(filename))
+
+#fcaR_options("use_ensuremath" = TRUE)
+
+# objects <- paste0("O", 1:4)
+# n_objects <- length(objects)
+# 
+# attributes <- paste0("P", 1:4)
+# n_attributes <- length(attributes)
+# 
+# I <- matrix(data = c(0, 0.5, 0.5, 0,
+#                      0.5, 1, 1, 0.5,
+#                      0.5, 0, 0, 1,
+#                      0.5, 1, 1, 0.5),
+#             nrow = n_objects,
+#             byrow = FALSE)
+# 
+# colnames(I) <- attributes
+# rownames(I) <- objects
+# 
+# fc <- FormalContext$new(I)
+# fc$find_implications()
+# 
+# my_caption <- glue::glue("A sample formal context. The attributes are {attributes[1]} to {attributes[fc$dim()[2]]} and the objects are named {objects[1]} to {objects[fc$dim()[1]]}.")
+# 
+# imps <- fc$implications$clone()
+# imps$apply_rules(c("simp", "rsimp"))
 
 # fc$to_latex(label = "tab:fc",
 #              caption = my_caption,

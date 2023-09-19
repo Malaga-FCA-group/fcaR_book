@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -159,7 +193,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link active" data-scroll-target="#exercise"><span class="header-section-number">3.1</span> Exercise</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">4</span> Exercises</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -181,8 +222,184 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="exercise" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">3.1</span> Exercise</h2>
+</section>
+<section id="exercises" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exercises</h1>
+<ol type="1">
+<li>Compute the intent of <code>Earth</code> and <code>Earth,Mars, Mercury</code> (use the argument attributes in the class Set).</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>{Mercury, Earth, Mars}</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Given the set of objects:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{Earth}</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The intent is:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{small, near, moon}</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{small, near}</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Compute the extent of <code>large</code> and <code>far,large</code> (use the argument attributes in the class Set) and save the result in a variable <code>e1, e2</code>.</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Given the set of objects:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{large}</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{large, far}</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The extent is:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{Jupiter, Saturn}</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{Jupiter, Saturn}</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Compute the intent of variables <code>e1</code> and also of <code>e2</code>.</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>{large, far, moon}</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{large, far, moon}</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li><p>With the information from the above questions tell me a concept. Check with any command of fcaR package.</p></li>
+<li><p>Compute the closure of <code>no_moon</code></p></li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>{small, near, no_moon}</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>({Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto}, {moon})</code></pre>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Compute all the concepts and plot them. How many are there? Show the fist and the last (use subsetting).</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>A set of 2 concepts:
+1: ({Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto}, {})
+2: ({}, {small, medium, large, near, far, moon, no_moon})</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="lattice_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol start="7" type="1">
+<li>Compute the major concept (in lattice) that has moon. The same with no_moon. Locate both in the lattice to understand the meaning.</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>({Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto}, {moon})</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>({Mercury, Venus}, {small, near, no_moon})</code></pre>
+</div>
+</div>
+<ol start="8" type="1">
+<li>Compute the minor concept (in lattice) that has Pluto The same with Earth. Locate both in the lattice to understand the meaning.</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>({Pluto}, {small, far, moon})</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>({Earth, Mars}, {small, near, moon})</code></pre>
+</div>
+</div>
+<ol start="9" type="1">
+<li>Compute the meet irreducible elements in the lattice.</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>A set of 7 concepts:
+1: ({Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto}, {moon})
+2: ({Jupiter, Saturn, Uranus, Neptune, Pluto}, {far, moon})
+3: ({Jupiter, Saturn}, {large, far, moon})
+4: ({Uranus, Neptune}, {medium, far, moon})
+5: ({Mercury, Venus, Earth, Mars, Pluto}, {small})
+6: ({Mercury, Venus, Earth, Mars}, {small, near})
+7: ({Mercury, Venus}, {small, near, no_moon})</code></pre>
+</div>
+</div>
+<ol start="10" type="1">
+<li>Compute the sublattice of the concept in the irreducible elements</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>A set of 12 concepts:
+1: ({Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto}, {})
+2: ({Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto}, {moon})
+3: ({Jupiter, Saturn, Uranus, Neptune, Pluto}, {far, moon})
+4: ({Jupiter, Saturn}, {large, far, moon})
+5: ({Uranus, Neptune}, {medium, far, moon})
+6: ({Mercury, Venus, Earth, Mars, Pluto}, {small})
+7: ({Earth, Mars, Pluto}, {small, moon})
+8: ({Pluto}, {small, far, moon})
+9: ({Mercury, Venus, Earth, Mars}, {small, near})
+10: ({Mercury, Venus}, {small, near, no_moon})
+11: ({Earth, Mars}, {small, near, moon})
+12: ({}, {small, medium, large, near, far, moon, no_moon})</code></pre>
+</div>
+</div>
+<ol start="11" type="1">
+<li>Compute the sublattice of the concept in the irreducible elements removing the first element in the list of irreducible elements. Plot this sublattice.</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>A set of 9 concepts:
+1: ({Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto}, {})
+2: ({Jupiter, Saturn, Uranus, Neptune, Pluto}, {far, moon})
+3: ({Jupiter, Saturn}, {large, far, moon})
+4: ({Uranus, Neptune}, {medium, far, moon})
+5: ({Mercury, Venus, Earth, Mars, Pluto}, {small})
+6: ({Pluto}, {small, far, moon})
+7: ({Mercury, Venus, Earth, Mars}, {small, near})
+8: ({Mercury, Venus}, {small, near, no_moon})
+9: ({}, {small, medium, large, near, far, moon, no_moon})</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="lattice_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol start="12" type="1">
+<li>Develop a function returning the index and also the labels in all the concepts (inside the formal context) having a vector with attributes. HOMEWORK.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>in_concept <span class="ot">&lt;-</span> <span class="cf">function</span>(formal_context, <span class="at">attribute=</span>xxx){</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#si en </span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">index=</span>..., <span class="at">labels=</span>...))</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
