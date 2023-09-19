@@ -41,6 +41,12 @@ to use the package, describing the implemented FCA methods and the use of the si
 
 ## History of FCA
 
+---
+
+Mejor no usar "quotes"
+
+---
+
 > > Port-Royal logic (traditional logic): formal notion of concept, Arnauld A., Nicole P.: La logique ou l'art de penser, 1662 (Logic Or The Art Of Thinking, CUP, 2003): concept = extent (objects) + intent (attributes)
 
 > > G. Birkhoff (1940s): work on lattices and related mathematical structures, emphasizes applicational aspects of lattices in data analysis.
@@ -53,17 +59,7 @@ to use the package, describing the implemented FCA methods and the use of the si
 
 
 
-# Application of FCA
-
--   knowledge extraction
--   clustering and classification
--   machine learning
--   concepts, ontologies
--   rules, association rules, attribute implications
-
-
-
-##  Applications of FCA
+## Application of FCA
 
 -   knowledge extraction
 -   clustering and classification

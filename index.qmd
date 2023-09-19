@@ -6,3 +6,12 @@ Mi idea:
 - Dentro (al final) de cada capítulo, añadir una sección donde se explique el uso de `fcaR`.
 - Pasar a un capítulo para hablar del FCA difuso.
 - Para finalizar, un capítulo con aplicaciones reales.
+
+
+Cuál puede ser la estructura de cada capítulo:
+
+- Motivación
+- Teoría (sin demostraciones pero con ejemplos -- con los planetas)
+- Cómo usar fcaR para realizar los ejemplos
+- Ejercicios propuestos (a realizar con R)
+- "Para saber más..."

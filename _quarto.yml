@@ -1,10 +1,19 @@
 project:
   type: book
+  output-dir: output
 
 book:
   title: "Formal Concept Analysis with R"
   author: "Malaga FCA group"
   date: "7/18/2023"
+  search: true
+  repo-url: https://github.com/malaga-fca-group/fcaR_book
+  repo-actions: [issue]
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  sidebar:
+    style: docked
+    background: light
   chapters:
     - index.qmd
     - intro.qmd
@@ -17,12 +26,20 @@ book:
     - references.qmd
 
 bibliography: references.bib
+highlight-style: pygments
 
 format:
   html:
     theme: cosmo
+    code-copy: true
   pdf:
-    documentclass: scrreprt
+    documentclass: scrbook
+    include-in-header: preamble.tex
+    keep-tex: false
 
+filters:
+  - parse-latex
 
+comments:
+  hypothesis: true
 

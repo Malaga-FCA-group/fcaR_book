@@ -1,14 +1,27 @@
 # Formal Contexts and Galois Connections
 
+```{r initfc, echo = FALSE}
+library(fcaR)
+fc <- FormalContext$new(planets)
+fc$find_concepts()
+```
+
+
 ---
 
 Habría que reescribir para únicamente presentar la versión crisp
 
 ---
 
-In this section, we present the basic notions in the FCA framework using a running example (see Table&nbsp;\ref{tab:fc}). Note that the package incorporates the main methods in FCA that appear in this summary. Since the formal study of FCA is not the main scope of this work,  we recommend the reference [@ganter2016conceptual] for further details of this framework. 
 
-```{r fc, echo=FALSE, message=FALSE, warning=FALSE, results='markup'}
+## Motivation
+
+
+## Formal Contexts
+
+In this section, we present the basic notions in the FCA framework using a running example (see Table&nbsp;\ref{tab-fc}). Note that the package incorporates the main methods in FCA that appear in this summary. Since the formal study of FCA is not the main scope of this work,  we recommend the reference [@ganter2016conceptual] for further details of this framework. 
+
+```{r fc, eval = FALSE, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 library(fcaR)
 fc <- FormalContext$new(planets)
 fc$find_implications()
@@ -49,6 +62,26 @@ cat(readLines(filename))
 #              caption = my_caption,
 #              fraction = "sfrac")
 ```
+
+
+\begin{table} \centering 
+\caption{The `planets` formal context.}\label{tab-fc}
+\begin{tabular}{lccccccc}
+\toprule
+ & small & medium & large & near & far & moon & no\_moon\\
+\midrule
+Mercury & $\times$ &   &   & $\times$ &   &   & $\times$\\ 
+Venus & $\times$ &   &   & $\times$ &   &   & $\times$\\ 
+Earth & $\times$ &   &   & $\times$ &   & $\times$ &  \\ 
+Mars & $\times$ &   &   & $\times$ &   & $\times$ &  \\ 
+Jupiter &   &   & $\times$ &   & $\times$ & $\times$ &  \\ 
+Saturn &   &   & $\times$ &   & $\times$ & $\times$ &  \\ 
+Uranus &   & $\times$ &   &   & $\times$ & $\times$ &  \\ 
+Neptune &   & $\times$ &   &   & $\times$ & $\times$ &  \\ 
+Pluto & $\times$ &   &   &   & $\times$ & $\times$ &  \\
+\bottomrule
+\end{tabular} \end{table}
+
 
 A {formal context} is a triple $(G, M, I)$, where $G$ is a set of objects, $M$ is a set of attributes and $I$ is a fuzzy relation between objects and attributes, where $I(x, y) \in [0, 1]$ means the truth value to which object $x$ possesses attribute $y$, indicating $I(x,y) = 0$ the absence of attribute or property $y$ in object $x$.
 
@@ -91,7 +124,7 @@ str2 <- stringr::str_flatten(str[-length(str)], collapse = ", ")
 str2 <- paste0(str2, " and ", str[length(str)])
 
 ```
-In the above example, for $S=$`r S$to_latex(FALSE)`, we have $\text{intent}(S)=$`r intentS$to_latex(FALSE)` because `r str2`.
+In the above example, for $S=$`r S$to_latex(FALSE)`, we have $\text{intent}(S)=`r intentS$to_latex(FALSE)`$ because `r str2`.
 
 ```{r echo = FALSE}
 T <- Set$new(fc$attributes)
@@ -110,9 +143,26 @@ this_concept <- C$to_latex()
 ```
 In general, a concept $(A, B)$, where $A$ is a set of objects, and $B$ is a set of attributes, means that the only attributes shared by all objects in $A$ are those in $B$, and the only objects having all attributes in $B$ are those in $A$. This property makes $(A, B)$ a _maximal rectangular cluster_ in the dataset, with a strong dependence between the objects in $A$ and the attributes in $B$. In the formal context represented in Table&nbsp;\ref{tab:fc}, the pair `r this_concept` is a concept, because  $\text{extent}(`r this_intent`)=`r this_extent`$ and  $\text{intent}(`r this_extent`)=`r this_intent`$, i.e. a fixpoint is achieved. 
 
+## Operations on formal contexts
+
 In FCA, using these derivation operators, two operations can be used to reduce a formal context:
 
 - {Clarification}, which is the removal of duplicated rows (objects) and columns (attributes) of the formal context since duplicates do not contribute knowledge to the context.
 - {Reduction}, which removes attributes that can be expressed as the closure of other attributes.  
 
 These two operations remove redundancies in the formal context without affecting the knowledge contained in it. Many of the subsequent operations in FCA have high computational complexity, and clarifying and reducing a formal context may reduce the computational time of posterior operations.
+
+## Context Scaling
+
+...
+
+## `FormalContext` in `fcaR`
+
+...
+
+
+## Exercises
+
+
+## Additional resources
+
