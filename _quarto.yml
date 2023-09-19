@@ -36,6 +36,7 @@ format:
     documentclass: scrbook
     include-in-header: preamble.tex
     keep-tex: false
+  epub: default
 
 filters:
   - parse-latex
